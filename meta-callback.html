@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>Dosya X01 Yükleyici</title>
+<style>body{max-width:640px;margin:60px auto;padding:0 16px;font:16px/1.6 system-ui,sans-serif;color:#1b1f24}</style>
+</head>
+<body>
+<h1>Bağlantı tamamlanıyor</h1>
+<p id="durum">Shorts Atölyesi programına dönülüyor…</p>
+<script>
+// Meta girişten sonra buraya döner. Kod hiçbir yere kaydedilmez,
+// yalnız aynı bilgisayarda çalışan programa iletilir.
+(function () {
+  var q = window.location.search;
+  if (!q || q.indexOf('state=') === -1) {
+    document.getElementById('durum').textContent = 'Geçersiz bağlantı. Programdan yeniden bağlan.';
+    return;
+  }
+  window.location.replace('http://127.0.0.1:3456/callback' + q);
+})();
+</script>
+<noscript><p>Bu sayfanın çalışması için JavaScript gerekir.</p></noscript>
+</body>
+</html>
